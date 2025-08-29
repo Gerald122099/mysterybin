@@ -27,7 +27,7 @@ for ($i = 6; $i >= 0; $i--) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mystery Bin Dashboard</title>
+    <title>CTU Mystery Bin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -566,7 +566,7 @@ for ($i = 6; $i >= 0; $i--) {
             <a href="#" class="nav-item" data-page="transactions"><i class="fas fa-history"></i> Transactions</a>
             <a href="#" class="nav-item" data-page="rewards"><i class="fas fa-gift"></i> Rewards</a>
             <a href="#" class="nav-item" data-page="settings"><i class="fas fa-cog"></i> Settings</a>
-            <a href="logout.php" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <a href="index.php" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </aside>
 
         <!-- Main Content -->
@@ -613,7 +613,7 @@ for ($i = 6; $i >= 0; $i--) {
                             </div>
                         </div>
                     </div>
-                    <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a href="index.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </div>
             </div>
 
