@@ -120,7 +120,10 @@ for ($i = 6; $i >= 0; $i--) {
   .dashboard-container{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
   .sidebar{background:var(--primary);color:#fff;padding:20px 0;position:fixed;width:250px;height:100vh;overflow-y:auto}
   .brand{padding:0 20px 20px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:20px}
-  .brand h1{font-size:1.5rem;display:flex;align-items:center;gap:10px}
+  .brand-content{display:flex;align-items:center;gap:12px}
+  .logo-img{width:50px;height:50px;object-fit:contain;border-radius:6px}
+  .brand h1{font-size:1.3rem;margin:0;line-height:1.2}
+  .brand-subtitle{font-size:0.8rem;opacity:0.8;margin-top:2px}
   .nav-item{padding:12px 20px;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.8);text-decoration:none;transition:var(--transition)}
   .nav-item:hover,.nav-item.active{background:rgba(255,255,255,.1);color:#fff}
   .main-content{grid-column:2;padding:20px 30px}
@@ -195,7 +198,15 @@ for ($i = 6; $i >= 0; $i--) {
 <div class="dashboard-container">
   <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="brand"><h1><i class="fas fa-trash-alt"></i> Mystery Bin</h1></div>
+    <div class="brand">
+      <div class="brand-content">
+        <img src="binlogo.png" alt="CTU Mystery Bin Logo" class="logo-img">
+        <div class="brand-text">
+          <h1>Mystery Bin</h1>
+          <span class="brand-subtitle">CTU</span>
+        </div>
+      </div>
+    </div>
     <a href="#" class="nav-item active" data-page="dashboard"><i class="fas fa-home"></i> Dashboard</a>
     <a href="#" class="nav-item" data-page="settings"><i class="fas fa-cog"></i> Settings</a>
     <a href="index.php" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -243,7 +254,7 @@ for ($i = 6; $i >= 0; $i--) {
     <!-- Dashboard Page -->
     <div class="page-content active" id="dashboard-page">
 
-      <!-- Stats row: Today’s Collection, Tank Level, Reward A, Reward B -->
+      <!-- Stats row: Today's Collection, Tank Level, Reward A, Reward B -->
       <div class="stats-grid">
         <!-- Today's Collection -->
         <div class="stat-card">
@@ -592,7 +603,7 @@ function showToast(msg){
   }, 10000);
 }
 
-// Track last IDs we’ve seen
+// Track last IDs we've seen
 let lastNotifId = (()=>{
   const first = document.querySelector('#notifList .notification-item');
   return first ? parseInt(first.getAttribute('data-id')||'0',10) : 0;
