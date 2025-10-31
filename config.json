@@ -1,0 +1,11 @@
+{
+    "weight_thresh_g": 25,
+    "water_threshold": 1800,
+    "reward_on_ms": 1000,
+    "a_min": 30,
+    "a_max": 50,
+    "b_min": 151,
+    "b_max": 200,
+    "config_version": 22,
+    "updated_at": "2025-10-29T09:14:50+01:00"
+}

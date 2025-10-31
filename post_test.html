@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MysteryBIN — Test POST</title>
+
+<form id="txForm" method="post" action="http://192.168.1.15/mysterybin/insert_transaction.php">
+  <label>Bin ID
+    <input name="bin_id" value="BIN-001" required>
+  </label><br>
+
+  <label>Transaction ID
+    <input name="transaction_id" value="TX-000125" pattern="TX-\d{6}" required>
+  </label><br>
+
+  <label>Total Grams
+    <input type="number" name="total_grams" value="150.75" step="0.01" min="0" required>
+  </label><br>
+
+  <label>Accepted Count
+    <input type="number" name="accepted_count" value="4" step="1" min="0" required>
+  </label><br>
+
+  <label>Reward Type
+    <select name="reward_type" required>
+      <option value="A">A</option>
+      <option value="B" selected>B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+    </select>
+  </label><br>
+
+  <label>Reward Label
+    <input name="reward_label" value="Reward B" required>
+  </label><br><br>
+
+  <button type="submit">Send</button>
+</form>
+
+<pre id="result" style="padding:8px;border:1px solid #ccc;margin-top:10px;white-space:pre-wrap;"></pre>
+
+<script>
+  // Show JSON response on the page (optional quality-of-life)
+  const form = document.getElementById('txForm');
+  const result = document.getElementById('result');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // keep page from navigating away
+    result.textContent = 'Sending...';
+
+    try {
+      const resp = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      const text = await resp.text(); // read raw in case server returns non-JSON on error
+      try {
+        const json = JSON.parse(text);
+        result.textContent = JSON.stringify(json, null, 2);
+      } catch {
+        result.textContent = text;
+      }
+    } catch (err) {
+      result.textContent = 'Request error: ' + err;
+    }
+  });
+</script>
+ 
